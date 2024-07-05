@@ -11,14 +11,14 @@
 
 </head>
 
-<body >
+<body>
     
     <header></header>
     <main>
         <div class=" p-5">
             <div class="row m-auto p-5 justify-content-center ">
                 <div class="col-md-8 w-50 dvh-100 h-100">
-                    <form action="" class=" bg-secondary p-5 rounded-4">
+                    <form action="" class=" bg-secondary p-5 rounded-4" id="myForm">
                         <div class="form-floating mb-3">
                             <input type="text" class="form-control" name="firstName" placeholder="" minlength="3" required 
                             oninvalid="this.setCustomValidity('باید شامل سه حرف باشد')">
@@ -30,11 +30,11 @@
                             <label for="lastName">Last Name</label>
                           </div>
                           <div class="form-floating mb-3">
-                            <input type="text" class="form-control" name="userName"  placeholder="" minlength="6" required>
+                            <input type="text" class="form-control" name="userName"  pattern="[A-Za-z]+" placeholder="" minlength="6" required>
                             <label for="userName">Username</label>
                           </div>
                           <div class="form-floating mb-3">  
-                            <input type="tel" class="form-control" name="phone" pattern="[0]{1}-[9]{1}-[0-9]{9}"  placeholder="" required>
+                            <input type="tel" class="form-control" name="phone" pattern="09\d{9}" placeholder="" required>
                             <label for="phone">Phone Number</label>
                           </div>
                           <fieldset>
@@ -60,7 +60,7 @@
                             <input type="date" class="form-control" name="birthDate"  placeholder="" value="" required>
                             <label for="birthDate">Birth Date</label>
                           </div>
-                          <button class="btn btn-dark w-100 py-3" name="submit" type="submit">Sign Up</button>
+                          <button class="btn btn-dark w-100 py-3" name="submit"  type="submit" onclick="return submitForm();">Sign Up</button>
                          </div>
 
                     </form>      

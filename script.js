@@ -1,7 +1,6 @@
 function SetCurrentDate()
         {
         const date = new Date();
-        console.log(date);
         let d = date.getDate();
         let m = date.getMonth() + 1;
         let y = date.getFullYear(); 
@@ -12,16 +11,43 @@ function SetCurrentDate()
         }
 document.addEventListener("DOMContentLoaded", SetCurrentDate);
 
-var password = document.getElementByName("psw")
-  , confirm_password = document.getElementByName("psw-repeat");
+// document.getElementById("myForm").addEventListener("submit", function (event) {
+//     let success=submitForm();
+//     if(success===false){
+//         event.preventDefault();
+//     }
 
-function validatePassword(){
+// // else{
+// //     event.submitForm();
+// // }
+// });
+
+
+function validatePassword(password,confirm_password){
   if(password.value != confirm_password.value) {
     confirm_password.setCustomValidity("Passwords Don't Match");
+    console.log('false');
+    return false;
   } else {
     confirm_password.setCustomValidity('');
+    console.log('true');
+    return true;
   }
 }
 
-password.onchange = validatePassword;
-confirm_password.onkeyup = validatePassword;
+// password.onchange = validatePassword;
+// confirm_password.onkeyup = validatePassword;
+
+
+function submitForm(){
+    var password = document.getElementsByName("psw")[0]
+  , confirm_password = document.getElementsByName("psw-repeat")[0];
+    let passValRes=validatePassword(password,confirm_password);
+    if(passValRes){
+        console.log('Successful');
+        alert('Successful');
+        return true;
+    }
+    return false;
+}
+
